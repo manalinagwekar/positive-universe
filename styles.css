@@ -6,12 +6,19 @@
 
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    background-color: #E6E6FA; /* Light purple background */
+    background: linear-gradient(135deg, #E6E6FA 25%, #D1C4E9 75%); /* Gradient background */
+    animation: backgroundAnimation 15s ease infinite; /* Background animation */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden; /* Prevent scrollbars from appearing */
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+@keyframes backgroundAnimation {
+    0% { background-color: #E6E6FA; }
+    50% { background-color: #D1C4E9; }
+    100% { background-color: #E6E6FA; }
 }
 
 .container {
@@ -26,6 +33,13 @@ body {
 h1 {
     color: #800080; /* Dark purple for the title */
     margin-bottom: 20px;
+}
+
+.quote-box {
+    font-size: 1.5em;
+    color: #4B0082; /* Indigo color */
+    margin-bottom: 20px;
+    transition: opacity 0.5s; /* Fade-in effect */
 }
 
 .images {
@@ -43,7 +57,7 @@ h1 {
 }
 
 .cute-image:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Slight scale effect on hover */
 }
 
 .hover-button {
@@ -58,8 +72,8 @@ h1 {
 }
 
 .hover-button:hover {
-    background-color: #9370DB; /* Lighter purple on hover */
-    transform: scale(1.05);
+    transform: scale(1.05); /* Make the button grow */
+    background-color: #9370DB; /* Change color on hover */
 }
 
 .message-box {
