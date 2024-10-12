@@ -179,8 +179,13 @@ cuteImages.forEach(image => {
     image.addEventListener('mouseover', displayRandomMessage);
 });
 
-const cuteElements = document.querySelectorAll('.hover-button, .cute-image');
-cuteElements.forEach(element => {
+function displayRandomMessage() {
+  const randomIndex = Math.floor(Math.random() * messages.length);
+  document.getElementById('message-box').innerText = messages[randomIndex];
+}
+
+const hoverElements = document.querySelectorAll('.hover-button, .cute-image');
+hoverElements.forEach(element => {
   element.addEventListener('mouseover', displayRandomMessage);
 });
 
