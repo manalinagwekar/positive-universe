@@ -108,12 +108,37 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Fun Pattern */
+/* Shifting Gradient Background */
+body {
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fcb69f, #fcb69f);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hover Animation */
+.cute-image:hover {
+  transform: scale(1.2) rotate(15deg);
+  transition: transform 0.3s;
+}
+
+.hover-button:hover {
+  transform: scale(1.1);
+  background-color: #f8b195;
+  transition: all 0.3s ease;
+}
+
+/* Add Pattern */
 body::before {
   content: '';
   position: absolute;
   width: 100%;
   height: 100%;
   background: url('cute-pattern.svg') repeat;
-  opacity: 0.2;
+  opacity: 0.1;
 }
