@@ -86,7 +86,7 @@ body::before {
     right: 0;
     bottom: 0;
     background-image: url('https://www.transparenttextures.com/patterns/paper.png'); /* Pattern URL */
-    opacity: 0.1; /* Adjust for subtlety */
+    opacity: 0.15; /* Adjust for subtlety */
     z-index: 0; /* Make sure the background is behind other elements */
 }
 
