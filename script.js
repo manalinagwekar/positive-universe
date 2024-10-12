@@ -178,3 +178,9 @@ button.addEventListener('mouseout', () => {
 cuteImages.forEach(image => {
     image.addEventListener('mouseover', displayRandomMessage);
 });
+
+const cuteElements = document.querySelectorAll('.hover-button, .cute-image');
+cuteElements.forEach(element => {
+  element.addEventListener('mouseover', displayRandomMessage);
+});
+
