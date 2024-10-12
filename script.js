@@ -137,11 +137,28 @@ function displayRandomMessage() {
     messageBox.innerText = messages[randomIndex];
 }
 
+// Function to randomize image position
+function randomizeImagePositions() {
+    const cuteImages = document.querySelectorAll('.cute-image');
+    cuteImages.forEach(image => {
+        const randomX = Math.random() * 30 - 15; // Random X offset between -15 and 15 degrees
+        const randomY = Math.random() * 30 - 15; // Random Y offset between -15 and 15 degrees
+        const randomScale = Math.random() * (1.2 - 1) + 1; // Random scale between 1 and 1.2
+        image.style.transform = `translate(${randomX}px, ${randomY}px) scale(${randomScale})`;
+    });
+}
+
 // Event listener for the button
-button.addEventListener('mouseover', displayRandomMessage);
+button.addEventListener('mouseover', () => {
+    displayRandomMessage();
+    randomizeImagePositions();
+});
 
 // Event listeners for each image
 const cuteImages = document.querySelectorAll('.cute-image');
 cuteImages.forEach(image => {
-    image.addEventListener('mouseover', displayRandomMessage);
+    image.addEventListener('mouseover', () => {
+        displayRandomMessage();
+        randomizeImagePositions();
+    });
 });
