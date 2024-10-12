@@ -131,49 +131,6 @@ const messages = [
     // Continue adding up to 365
 ];
 
-const button = document.getElementById('hover-button');
-const messageBox = document.getElementById('message-box');
-const cuteImages = document.querySelectorAll('.cute-image');
-
-// Function to display a random message
-function displayRandomMessage() {
-    const randomIndex = Math.floor(Math.random() * messages.length);
-    messageBox.innerText = messages[randomIndex];
-}
-
-// Function to trigger confetti
-function triggerConfetti() {
-    confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-    });
-}
-
-// Event listener for the button
-button.addEventListener('mouseover', () => {
-    displayRandomMessage();
-    triggerConfetti(); // Trigger confetti on hover
-    popImages();
-});
-
-// Function to pop images randomly around the container
-function popImages() {
-    cuteImages.forEach(image => {
-        // Generate random position
-        const randomX = Math.random() * 100 - 50; // X position
-        const randomY = Math.random() * 100 - 50; // Y position
-        image.style.transform = `translate(${randomX}vw, ${randomY}vh) rotate(${Math.random() * 360}deg)`;
-    });
-}
-
-// Reset images back to original position after a short delay
-button.addEventListener('mouseout', () => {
-    cuteImages.forEach(image => {
-        image.style.transform = 'translate(0, 0) rotate(0deg)';
-    });
-});
-
 function displayRandomMessage() {
     const randomIndex = Math.floor(Math.random() * messages.length);
     document.getElementById('message-box').innerText = messages[randomIndex];
