@@ -11,16 +11,19 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    position: relative; /* Position relative for the background pattern */
+    overflow: hidden; /* Prevent overflow from the container */
 }
 
 .container {
     text-align: center;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     width: 80%;
     max-width: 800px;
+    z-index: 1; /* Make sure container is above background */
 }
 
 h1 {
@@ -72,4 +75,28 @@ h1 {
     color: #4B0082; /* Indigo color */
     height: 50px;
     transition: opacity 0.3s ease;
+}
+
+/* Background Patterns */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/paper.png'); /* Pattern URL */
+    opacity: 0.1; /* Adjust for subtlety */
+    z-index: 0; /* Make sure the background is behind other elements */
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(230, 230, 250, 0.7); /* Light purple overlay for contrast */
+    z-index: 0; /* Make sure the overlay is behind the container */
 }
