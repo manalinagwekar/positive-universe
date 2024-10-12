@@ -1,5 +1,3 @@
-const button = document.querySelector('.hover-button');
-const messageBox = document.getElementById('message-box');
 const messages = [
     "You're a ray of sunshine in a cloudy world!",
     "Your smile can light up the darkest days!",
@@ -133,34 +131,50 @@ const messages = [
     // Continue adding up to 365
 ];
 
+const button = document.getElementById('hover-button');
+const messageBox = document.getElementById('message-box');
+const cuteImages = document.querySelectorAll('.cute-image');
+
 // Function to display a random message
 function displayRandomMessage() {
     const randomIndex = Math.floor(Math.random() * messages.length);
     messageBox.innerText = messages[randomIndex];
 }
 
-// Function to randomize image position
-function randomizeImagePositions() {
-    const cuteImages = document.querySelectorAll('.cute-image');
-    cuteImages.forEach(image => {
-        const randomX = Math.random() * 30 - 15; // Random X offset between -15 and 15 degrees
-        const randomY = Math.random() * 30 - 15; // Random Y offset between -15 and 15 degrees
-        const randomScale = Math.random() * (1.2 - 1) + 1; // Random scale between 1 and 1.2
-        image.style.transform = `translate(${randomX}px, ${randomY}px) scale(${randomScale})`;
+// Function to trigger confetti
+function triggerConfetti() {
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
     });
 }
 
 // Event listener for the button
 button.addEventListener('mouseover', () => {
     displayRandomMessage();
-    randomizeImagePositions();
+    triggerConfetti(); // Trigger confetti on hover
+    popImages();
+});
+
+// Function to pop images randomly around the container
+function popImages() {
+    cuteImages.forEach(image => {
+        // Generate random position
+        const randomX = Math.random() * 100 - 50; // X position
+        const randomY = Math.random() * 100 - 50; // Y position
+        image.style.transform = `translate(${randomX}vw, ${randomY}vh) rotate(${Math.random() * 360}deg)`;
+    });
+}
+
+// Reset images back to original position after a short delay
+button.addEventListener('mouseout', () => {
+    cuteImages.forEach(image => {
+        image.style.transform = 'translate(0, 0) rotate(0deg)';
+    });
 });
 
 // Event listeners for each image
-const cuteImages = document.querySelectorAll('.cute-image');
 cuteImages.forEach(image => {
-    image.addEventListener('mouseover', () => {
-        displayRandomMessage();
-        randomizeImagePositions();
-    });
+    image.addEventListener('mouseover', displayRandomMessage);
 });
