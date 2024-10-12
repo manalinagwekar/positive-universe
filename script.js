@@ -1,3 +1,5 @@
+const button = document.querySelector('.hover-button');
+const messageBox = document.getElementById('message-box');
 const messages = [
     "You're a ray of sunshine in a cloudy world!",
     "Your smile can light up the darkest days!",
