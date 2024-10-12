@@ -6,13 +6,21 @@
 
 body {
     font-family: 'Raleway', sans-serif;
-    background-color: #E6E6FA; /* Light purple background */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    position: relative; /* Position relative for the background pattern */
+    position: relative; /* Position relative for the background */
     overflow: hidden; /* Prevent overflow from the container */
+    background: linear-gradient(45deg, #E6E6FA, #D8BFD8, #E6E6FA, #DDA0DD); /* Gradient background */
+    background-size: 300% 300%; /* Size for animation */
+    animation: gradientAnimation 10s ease infinite; /* Animation effect */
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
@@ -47,11 +55,6 @@ h1 {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth effects */
 }
 
-.cute-image:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-}
-
 .hover-button {
     padding: 15px 30px;
     font-size: 1.1em;
@@ -75,28 +78,4 @@ h1 {
     color: #4B0082; /* Indigo color */
     height: 50px;
     transition: opacity 0.3s ease;
-}
-
-/* Background Patterns */
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('https://www.transparenttextures.com/patterns/paper.png'); /* Pattern URL */
-    opacity: 0.15; /* Adjust for subtlety */
-    z-index: 0; /* Make sure the background is behind other elements */
-}
-
-body::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(230, 230, 250, 0.7); /* Light purple overlay for contrast */
-    z-index: 0; /* Make sure the overlay is behind the container */
 }
