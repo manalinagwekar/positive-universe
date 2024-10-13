@@ -139,18 +139,15 @@ h1 {
     box-shadow: 0 8px 25px rgba(255, 61, 148, 0.8);
 }
 
-/* Floating emojis */
+
+.emoji {
+    position: absolute;
+    font-size: 2.5rem;
+    animation: floatEmojis 5s ease-in-out infinite;
+    opacity: 0.8;
+}
+
 @keyframes floatEmojis {
     0% { transform: translateY(0); }
     100% { transform: translateY(-100vh); }
 }
-
-.emoji {
-    position: absolute;
-    font-size: 2rem;
-    animation: floatEmojis 5s infinite;
-    opacity: 0.8;
-}
-
-.emoji:nth-child(1) { left: 10%; animation-delay: 1s; }
-.emoji:nth-child(2) { left: 50%; animation-delay: 3s; }
