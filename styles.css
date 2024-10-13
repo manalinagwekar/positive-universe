@@ -158,3 +158,28 @@ h1 {
         opacity: 0;
     }
 }
+/* Flexbox for horizontal image layout */
+.images {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    margin-bottom: 20px;
+}
+
+/* Adjusting the size and layout for mobile screens */
+@media (max-width: 768px) {
+    .images {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .cute-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .message-box {
+        font-size: 1.2em; /* Adjust size for better readability */
+        padding: 10px;
+    }
+}
