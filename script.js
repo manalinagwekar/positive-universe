@@ -147,26 +147,25 @@ cuteImages.forEach(image => {
     image.addEventListener('mouseover', displayRandomMessage);
 });
 
-// Emoji generation function
+// Function to create floating emojis
 function createFloatingEmoji() {
     const emojis = ['✨', '💖', '🌈', '🌟', '❤️', '😊'];
     const emoji = document.createElement('div');
     emoji.classList.add('emoji');
     emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
 
+    // Random position and size
     emoji.style.left = Math.random() * 100 + 'vw';
-    emoji.style.animationDuration = Math.random() * 3 + 3 + 's';
+    emoji.style.fontSize = Math.random() * 20 + 15 + 'px'; 
+    emoji.style.animationDuration = Math.random() * 5 + 3 + 's'; // Speed of floating
+
     document.body.appendChild(emoji);
 
-    // Remove emoji after animation ends
+    // Remove after animation
     setTimeout(() => {
         emoji.remove();
-    }, 5000);
+    }, 8000); // Longer to allow for float animation
 }
 
-// Trigger emoji floating when hovering over images and buttons
-const elements = document.querySelectorAll('.cute-image, .hover-button');
-elements.forEach(element => {
-    element.addEventListener('mouseover', createFloatingEmoji);
-});
-
+// Continuously generate emojis at intervals
+setInterval(createFloatingEmoji, 500);
