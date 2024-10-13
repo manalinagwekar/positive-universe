@@ -1,41 +1,20 @@
-/* Shifting Gradient Background with Heart and Star Patterns */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fcb69f, #fcb69f);
-  background-size: 400% 400%;
-  animation: gradientShift 10s ease infinite;
-  cursor: url('cursor.png'), auto; /* Sparkly arrow cursor */
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Pattern Overlay */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('heartpattern.jpeg') repeat, url('star-pattern.webp') repeat;
-  background-size: 100px 100px, 150px 150px;
-  opacity: 0.2;
-  z-index: -1;
-}
-
-/* Hover Animation */
-.cute-image:hover {
-  transform: scale(1.2) rotate(15deg);
-  transition: transform 0.3s;
-}
-
-.hover-button:hover {
-  transform: scale(1.1);
-  background-color: #f8b195;
-  transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    background-color: #E6E6FA; /* Light purple background */
+    background-image: url('heartpattern.jpeg'); /* Add your custom star and heart pattern image here */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    cursor: url('cursor.png'), auto; /* Custom sparkly cursor */
 }
 
 .container {
@@ -44,12 +23,23 @@ body::before {
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    width: 70%;
+    width: 80%;
 }
 
 h1 {
-    color: #800080;
+    color: #800080; /* Dark purple for the title */
     margin-bottom: 20px;
+    font-size: 2.5em;
+    animation: pop-in 1s ease-in-out infinite alternate;
+}
+
+@keyframes pop-in {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
 }
 
 .images {
@@ -57,28 +47,59 @@ h1 {
     justify-content: center;
     gap: 20px;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 .cute-image {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.cute-image:hover {
+    transform: scale(1.2) rotate(10deg);
+    box-shadow: 0 0 10px #ff69b4;
 }
 
 .hover-button {
     padding: 15px 30px;
-    font-size: 1em;
+    font-size: 1.2em;
     color: white;
-    background-color: #BA55D3;
+    background-color: #BA55D3; /* Medium purple button */
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
 }
 
+.hover-button:hover {
+    background-color: #9370DB; /* Lighter purple on hover */
+    transform: scale(1.1);
+    animation: shake 0.5s ease-in-out infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    25% { transform: translate(-1px, -2px) rotate(-1deg); }
+    50% { transform: translate(-3px, 0px) rotate(1deg); }
+    75% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -1px) rotate(0deg); }
+}
+
 .message-box {
     margin-top: 20px;
     font-size: 1.5em;
-    color: #4B0082;
+    color: #4B0082; /* Indigo color */
     height: 50px;
+    animation: fade-in-out 4s infinite;
+}
+
+@keyframes fade-in-out {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
 }
