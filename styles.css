@@ -121,3 +121,36 @@ h1 {
         font-size: 1.5em;
     }
 }
+
+.hover-button {
+    padding: 15px 30px;
+    font-size: 1em;
+    color: white;
+    background-image: linear-gradient(135deg, #ff8a00, #ff3d94);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(255, 61, 148, 0.6);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hover-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 61, 148, 0.8);
+}
+
+/* Floating emojis */
+@keyframes floatEmojis {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100vh); }
+}
+
+.emoji {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatEmojis 5s infinite;
+    opacity: 0.8;
+}
+
+.emoji:nth-child(1) { left: 10%; animation-delay: 1s; }
+.emoji:nth-child(2) { left: 50%; animation-delay: 3s; }
