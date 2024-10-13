@@ -146,3 +146,27 @@ button.addEventListener('mouseover', displayRandomMessage);
 cuteImages.forEach(image => {
     image.addEventListener('mouseover', displayRandomMessage);
 });
+
+// Emoji generation function
+function createFloatingEmoji() {
+    const emojis = ['✨', '💖', '🌈', '🌟', '❤️', '😊'];
+    const emoji = document.createElement('div');
+    emoji.classList.add('emoji');
+    emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+    emoji.style.left = Math.random() * 100 + 'vw';
+    emoji.style.animationDuration = Math.random() * 3 + 3 + 's';
+    document.body.appendChild(emoji);
+
+    // Remove emoji after animation ends
+    setTimeout(() => {
+        emoji.remove();
+    }, 5000);
+}
+
+// Trigger emoji floating when hovering over images and buttons
+const elements = document.querySelectorAll('.cute-image, .hover-button');
+elements.forEach(element => {
+    element.addEventListener('mouseover', createFloatingEmoji);
+});
+
