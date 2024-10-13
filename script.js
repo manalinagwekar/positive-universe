@@ -131,12 +131,18 @@ const messages = [
     // Continue adding up to 365
 ];
 
+const messageBox = document.getElementById('message-box');
+const button = document.querySelector('.hover-button');
+const cuteImages = document.querySelectorAll('.cute-image');
+
+// Function to display a random message
 function displayRandomMessage() {
     const randomIndex = Math.floor(Math.random() * messages.length);
-    document.getElementById('message-box').innerText = messages[randomIndex];
+    messageBox.innerText = messages[randomIndex];
 }
 
-const hoverElements = document.querySelectorAll('.hover-button, .cute-image');
-hoverElements.forEach(element => {
-    element.addEventListener('mouseover', displayRandomMessage);
+// Event listeners for the button and images
+button.addEventListener('mouseover', displayRandomMessage);
+cuteImages.forEach(image => {
+    image.addEventListener('mouseover', displayRandomMessage);
 });
